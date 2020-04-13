@@ -64,7 +64,7 @@
 					
 					<div class="text-center p-t-46 p-b-4">belum punya akun?</div>
 					<div class="d-flex">
-						<a href="{{route('register')}}" class="text-primary mx-auto">register</a>
+						<a href="{{route('getRegister')}}" class="text-primary mx-auto">register</a>
 					</div>			
 				</form>
 
@@ -73,9 +73,6 @@
 			</div>
 		</div>
 	</div>
-	
-	
-
 	
 	
 <!--===============================================================================================-->

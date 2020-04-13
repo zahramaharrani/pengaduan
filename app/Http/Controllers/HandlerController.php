@@ -38,7 +38,7 @@ class HandlerController extends Controller
 
    		} else{
 
-   			return redirect()->route('laporan.index');
+   			return redirect()->route('landing');
 
    		}
 

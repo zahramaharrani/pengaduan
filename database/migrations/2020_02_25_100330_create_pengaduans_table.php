@@ -17,6 +17,7 @@ class CreatePengaduansTable extends Migration
             $table->increments('id_pengaduan');
             $table->date('tgl_pengaduan');
             $table->unsignedInteger('id_masyarakat');
+            $table->string('judul',32);
             $table->text('isi_laporan');
             $table->string('foto');
             $table->enum('status', ['0', 'proses', 'selesai']);

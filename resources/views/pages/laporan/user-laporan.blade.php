@@ -97,11 +97,17 @@
               @csrf
                 <div class="form-group">
                 <!-- <label class="control-label" for="isi_laporan">Isi Laporan</label> -->
+                <div>
+                    <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul...">
+                </div>
                 <textarea class="form-control mb-3" name="isi_laporan" id="isi_laporan" placeholder="Ketik laporan anda disini..." rows="10"></textarea>
                 </div>
                 <div class="form-group">
                 <label class="control-label" for="foto">Foto</label>
-                <input type="file" class="form-control" name="foto" id="foto" style="height: 45px" />
+                <input type="file" class="form-control" onchange="previewFile()" name="foto" id="foto" style="height: 45px" />
+                </div>
+                <div>
+                  <img src="" alt="Image preview..." height="200" id="img">
                 </div>
                 <div class="d-flex justify-content-end">
                   <button type="submit" class="btn btn-primary">Lapor</button>

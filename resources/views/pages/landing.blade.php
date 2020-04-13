@@ -23,6 +23,25 @@
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="{{asset('tmp/css/creative.min.css')}}" rel="stylesheet">
 
+  <style type="text/css">
+    .card{
+      border:none;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    }
+
+    section#lapor{
+      background:rgba(255,255,255,.75);
+    }
+
+    .page-section{
+      padding: 65px 0;
+    }
+
+    textarea{
+      border:none !important;
+    }
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -45,6 +64,28 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#laporansaya">Laporan Saya</a>
           </li>
+
+          @guest
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ route('getRegister')}}">Daftar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ route('getLogin')}}">Masuk</a>
+          </li>
+          @endguest
+
+          @auth
+          <a class="nav-item nav-link btn btn-primary text-white tombol" href="#">
+            {{ Auth::user()->username }}
+
+            <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ route('logout.get')}}">Keluar</a>
+          </li>
+
+          @endauth
+
+         
+          </a>
         </ul>
       </div>
     </div>
@@ -59,28 +100,45 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">disini isinya ngebacit tentang apa tu aplikasi aku kawaaaaan</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#lapor">Yuk Lapor!</a>
+          <p class="text-white-75 font-weight-light mb-5">Pelaporan Pengaduan Masyarakat (PANGKAT) adalah layanan penyampaian semua pengaduan online masyarakat Indonesia</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ route('laporan.user')}}">Yuk Lapor!</a>
         </div>
       </div>
     </div>
   </header>
 
   <!-- Services Section -->
-  <section class="page-section" id="lapor">
+{{--   <section class="page-section" id="lapor">
     <div class="container">
-      <h2 class="text-center mt-0">Lapor</h2>
+      <h2 class="text-center mt-0 mb-3">Lapor</h2>
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="card">
+            <div class="card-body">
+              <form action="" method="post" enctype="multipart/form-data">
+              @csrf
+                <div class="form-group">
+                <!-- <label class="control-label" for="isi_laporan">Isi Laporan</label> -->
+                <textarea class="form-control mb-3" name="isi_laporan" id="isi_laporan" placeholder="Ketik laporan anda disini..." rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                <label class="control-label" for="foto">Foto</label>
+                <input type="file" class="form-control" name="foto" id="foto" style="height: 45px" />
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-primary">Lapor</button>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
+ --}}
 
   <!-- Call to Action Section -->
-  <section class="page-section bg-dark text-white">
-    <div class="container text-center">
-      <h2 class="mb-4">Pengaduan Masyarakat</h2>
-      <a class="btn btn-light btn-xl" href="#laporansaya">Lihat Laporan</a>
-    </div>
-  </section>
+
 
   <!-- Contact Section -->
   <section class="page-section" id="laporansaya">

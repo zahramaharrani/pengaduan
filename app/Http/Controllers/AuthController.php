@@ -25,7 +25,7 @@ class AuthController extends Controller
     	if (Auth::attempt($data_login)) {
     		return redirect()->route('init');    		
     	}else{
-    		return redirect()->back();
+    		return redirect()->back()->with('msgWarning', 'Username dan Password Salah');
     	}
     }
 
@@ -56,7 +56,7 @@ class AuthController extends Controller
 
          Auth::loginUsingId($user_id);
 
-         return redirect()->route('dashboard');
+         return redirect()->route('init');
     }
 
     public function logout(Request $request)

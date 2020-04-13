@@ -21,19 +21,20 @@ Route::post('p/login', 'AuthController@postLogin')->name('postLogin');
 
 Route::get('/register', function(){
 	return view('auth.register');
-	})->name('register')->middleware('guest');
+	})->name('getRegister')->middleware('guest');
 
 Route::post('p/reg', 'AuthController@postRegister')->name('postRegister');
 
 Route::post('/logout', 'AuthController@logout')->name('logout')->middleware('auth');
+Route::get('/logout/get', 'AuthController@logout')->name('logout.get');
 
 Route::get('/init', 'HandlerController@init')->name('init')->middleware('auth');
 
 Route::middleware('auth')->group(function(){
-	
-});
 
-Route::get('/dashboard', 'HandlerController@dashboard')->name('dashboard');
+	Route::get('/dashboard', 'HandlerController@dashboard')->name('dashboard');
 
+// laporan
 Route::resource('laporan', 'LaporanController');
-
+Route::get('/user-laporan', 'LaporanController@userLaporan')->name('laporan.user');
+});
